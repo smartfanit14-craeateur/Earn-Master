@@ -1,0 +1,12 @@
+workflows:
+android-release:
+  name: Android APK
+  max_build_duration: 60
+  instance_type: mac_mini_m2
+  scripts:
+    - name: Install npm packages
+      script: npm install
+    - name: Build APK
+      script: cd android && ./gradlew assembleRelease
+  artifacts:
+    - android/app/build/outputs/apk/release/app-release.apk
